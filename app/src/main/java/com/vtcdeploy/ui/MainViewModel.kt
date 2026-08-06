@@ -23,41 +23,14 @@ class MainViewModel(
     val isScanning = mutableStateOf(false)
     val isPatching = mutableStateOf(false)
     val logs = mutableStateListOf<String>()
-    val selectedGamePackage = mutableStateOf("[Auto-Detect Running Game]")
     val adbPath = mutableStateOf<String?>(null)
-
-    // Settings state
-    val partySlots = mutableStateListOf<String>("", "", "", "", "")
-    val catHp = mutableStateOf(75)
-    val catSp = mutableStateOf(75)
-    val dungeonCount = mutableStateOf(0)
-    val fleeNoParty = mutableStateOf(false)
-    val isEnglish = mutableStateOf(false)
-
-    // Game packages
-    val gamePackages = listOf(
-        "[Auto-Detect Running Game]",
-        "com.vtcmobile.gz06 (TS VTC)",
-        "net.chinesegamer.tsn (TS China)",
-        "com.sohagame.tsonline",
-        "com.gameark.tsonline",
-        "com.sohagame.ts"
-    )
 
     init {
         loadSettings()
-        adbPath.value = config.getAdbPath()
     }
 
     private fun loadSettings() {
-        isEnglish.value = config.isEnglish()
-        partySlots.forEachIndexed { i, _ ->
-            partySlots[i] = config.getPartySlot(i + 1) ?: ""
-        }
-        catHp.value = config.getCatBinhHp()
-        catSp.value = config.getCatBinhSp()
-        dungeonCount.value = config.getDailyDungeon()
-        fleeNoParty.value = config.isFleeNoParty()
+        adbPath.value = config.getAdbPath()
     }
 
     // Main screen actions
@@ -93,10 +66,6 @@ class MainViewModel(
         adbPath.value = path
     }
 
-    fun onGamePackageChanged(pkg: String) {
-        selectedGamePackage.value = pkg
-    }
-
     fun startPatch() {
         if (isPatching.value) return
         if (selectedDevices.isEmpty()) {
@@ -114,12 +83,12 @@ class MainViewModel(
 
         val patchConfig = PatchUseCase.PatchConfig(
             devices = devices.filter { selectedDevices.contains(it.serial) },
-            partySlots = partySlots.toList(),
-            catHp = catHp.value,
-            catSp = catSp.value,
-            dungeonCount = dungeonCount.value,
-            fleeNoParty = fleeNoParty.value,
-            gamePackage = selectedGamePackage.value
+            partySlots = listOf("", "", "", "", ""),
+            catHp = 75,
+            catSp = 75,
+            dungeonCount = 0,
+            fleeNoParty = false,
+            gamePackage = "com.vtcmobile.gz06"
         )
 
         viewModelScope.launch {
@@ -141,43 +110,8 @@ class MainViewModel(
         }
     }
 
-    // Settings actions
-    fun onPartySlotChanged(index: Int, name: String) {
-        partySlots[index] = name
-    }
-
-    fun onCatHpChanged(value: Int) {
-        catHp.value = value
-    }
-
-    fun onCatSpChanged(value: Int) {
-        catSp.value = value
-    }
-
-    fun onDungeonCountChanged(value: Int) {
-        dungeonCount.value = value
-    }
-
-    fun onFleeNoPartyChanged(enabled: Boolean) {
-        fleeNoParty.value = enabled
-    }
-
-    fun onLanguageChanged(english: Boolean) {
-        isEnglish.value = english
-    }
-
-    fun saveSettings() {
-        config.setAdbPath(adbPath.value ?: "")
-        config.setGamePackage(selectedGamePackage.value)
-        config.setEnglish(isEnglish.value)
-        config.setFleeNoParty(fleeNoParty.value)
-        config.setCatBinhHp(catHp.value)
-        config.setCatBinhSp(catSp.value)
-        config.setDailyDungeon(dungeonCount.value)
-        partySlots.forEachIndexed { i, name ->
-            config.setPartySlot(i + 1, name)
-        }
-        addLog("[OK] Settings saved")
+    fun onAdbPathChanged(path: String) {
+        adbPath.value = path
     }
 
     private fun addLog(message: String) {

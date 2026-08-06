@@ -19,14 +19,12 @@ import com.vtcdeploy.data.ConfigManager
 
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel,
-    onNavigateToSettings: () -> Unit
+    viewModel: MainViewModel
 ) {
     val devices by viewModel.devices.collectAsStateWithLifecycle()
     val isScanning by viewModel.isScanning.collectAsStateWithLifecycle()
     val isPatching by viewModel.isPatching.collectAsStateWithLifecycle()
     val logs by viewModel.logs.collectAsStateWithLifecycle()
-    val selectedGamePackage by viewModel.selectedGamePackage.collectAsStateWithLifecycle()
     val adbPath by viewModel.adbPath.collectAsStateWithLifecycle()
 
     Column(
@@ -35,7 +33,7 @@ fun MainScreen(
     ) {
         // Title
         Text(
-            text = stringResource(id = com.vtcdeploy.R.string.title_main),
+            text = "GAME PERFORMANCE OPTIMIZER",
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary,
@@ -47,7 +45,7 @@ fun MainScreen(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text(text = stringResource(id = com.vtcdeploy.R.string.grp_adb), fontWeight = FontWeight.Medium)
+            Text(text = "Emulator Directory", fontWeight = FontWeight.Medium)
             OutlinedTextField(
                 value = adbPath ?: "",
                 onValueChange = { viewModel.onAdbPathChanged(it) },
@@ -57,15 +55,12 @@ fun MainScreen(
             )
         }
 
-        // Game Package Dropdown
+        // Game Package Info
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text(text = stringResource(id = com.vtcdeploy.R.string.lbl_game_pkg), fontWeight = FontWeight.Medium)
-            DropdownMenuButton(selectedGamePackage, onValueChange = viewModel.onGamePackageChanged) {
-                // Game packages will be shown in dropdown
-            }
+            Text(text = "Game: com.vtcmobile.gz06", fontWeight = FontWeight.Medium)
         }
 
         // Device List
@@ -78,9 +73,9 @@ fun MainScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(text = stringResource(id = com.vtcdeploy.R.string.grp_devices), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                    Text(text = "Emulator List (Check to Patch)", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     Button(onClick = { viewModel.refreshDevices() }, enabled = !isScanning && !isPatching) {
-                        if (isScanning) CircularProgressIndicator(modifier = Modifier.size(20.dp)) else Text(stringResource(id = com.vtcdeploy.R.string.btn_refresh))
+                        if (isScanning) CircularProgressIndicator(modifier = Modifier.size(20.dp)) else Text("Refresh")
                     }
                 }
 
@@ -133,17 +128,20 @@ fun MainScreen(
             if (isPatching) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary, modifier = Modifier.size(24.dp))
-                    Text(stringResource(id = com.vtcdeploy.R.string.btn_patch))
+                    Text("PATCH (ACTIVATE OPTIMIZATION)")
                 }
             } else {
-                Text(stringResource(id = com.vtcdeploy.R.string.btn_patch), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Text("PATCH (ACTIVATE OPTIMIZATION)", fontSize = 16.sp, fontWeight = FontWeight.Bold)
             }
         }
 
-        // Settings Navigation
-        TextButton(onClick = onNavigateToSettings) {
-            Text("Settings", fontSize = 14.sp)
-        }
+        // Instructions
+        Text(
+            text = "INSTRUCTIONS:\n1. ALWAYS CLICK [PATCH] WHILE IN GAME, EVERY TIME GAME RESTARTS.\n2. IF TOOL HANGS, ONLY RESTART GAME APP, NOT THE ENTIRE EMULATOR.",
+            fontSize = 12.sp,
+            color = Color.Gray,
+            modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
+        )
     }
 }
 

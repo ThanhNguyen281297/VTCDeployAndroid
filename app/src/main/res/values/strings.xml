@@ -1,32 +1,11 @@
-<resources>
+﻿<resources>
     <string name="app_name">VtcDeploy - TS Game Optimizer</string>
     <string name="app_name_short">VtcDeploy</string>
     <string name="tab_main">Main</string>
-    <string name="tab_settings">Settings</string>
-    <string name="title_main">GAME PERFORMANCE OPTIMIZER</string>
     <string name="grp_adb">Emulator Directory</string>
     <string name="grp_devices">Emulator List (Check to Patch)</string>
     <string name="btn_refresh">Refresh</string>
     <string name="btn_patch">PATCH (ACTIVATE OPTIMIZATION)</string>
-    <string name="lbl_game_pkg">Target Game:</string>
-    <string name="grp_game_select">Game Version</string>
-    <string name="grp_party">Auto Party Configuration (Case-Sensitive)</string>
-    <string name="grp_pet">Pet AutoBuff (Trigger %)</string>
-    <string name="grp_daily">Daily Quests</string>
-    <string name="lbl_dung">Buy Extra Dungeon Runs (0/1/2):</string>
-    <string name="chk_flee">[*] Auto-Flee when No Party</string>
     <string name="lbl_inst">INSTRUCTIONS:\n1. ALWAYS CLICK [PATCH] WHILE IN GAME, EVERY TIME GAME RESTARTS.\n2. IF TOOL HANGS, ONLY RESTART GAME APP, NOT THE ENTIRE EMULATOR.</string>
-    <string name="lbl_hp">HP <</string>
-    <string name="lbl_sp">SP <</string>
-    <string name="party_slot_1">👑 Leader (Slot 1):</string>
-    <string name="party_slot_2">🧠 Adviser (Slot 2):</string>
-    <string name="party_slot_3">🤝 Member (Slot 3):</string>
-    <string name="party_slot_4">🤝 Member (Slot 4):</string>
-    <string name="party_slot_5">🤝 Member (Slot 5):</string>
-    <string name="auto_detect">[Auto-Detect Running Game]</string>
-    <string name="vtc_ts">com.vtcmobile.gz06 (TS VTC)</string>
-    <string name="china_ts">net.chinesegamer.tsn (TS China)</string>
-    <string name="soha_ts">com.sohagame.tsonline</string>
-    <string name="gameark_ts">com.gameark.tsonline</string>
-    <string name="soha_ts2">com.sohagame.ts</string>
+    <string name="lbl_game_pkg">Game: com.vtcmobile.gz06</string>
 </resources>

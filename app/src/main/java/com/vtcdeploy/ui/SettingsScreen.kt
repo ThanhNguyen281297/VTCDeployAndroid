@@ -32,7 +32,7 @@ fun SettingsScreen(
         // Party Configuration
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = stringResource(id = com.vtcdeploy.R.string.grp_party), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = "Auto Party Configuration (Case-Sensitive)", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 LazyColumn(modifier = Modifier.fillMaxWidth()) {
                     itemsIndexed(partySlots) { index, name ->
                         Row(
@@ -41,15 +41,13 @@ fun SettingsScreen(
                                 .padding(vertical = 8.dp),
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            Text(text = stringResource(
-                                when (index) {
-                                    0 -> com.vtcdeploy.R.string.party_slot_1
-                                    1 -> com.vtcdeploy.R.string.party_slot_2
-                                    2 -> com.vtcdeploy.R.string.party_slot_3
-                                    3 -> com.vtcdeploy.R.string.party_slot_4
-                                    else -> com.vtcdeploy.R.string.party_slot_5
-                                }
-                            ), fontWeight = FontWeight.Medium, modifier = Modifier.width(140.dp))
+                            Text(text = when (index) {
+                                0 -> "👑 Leader (Slot 1):"
+                                1 -> "🧠 Adviser (Slot 2):"
+                                2 -> "🤝 Member (Slot 3):"
+                                3 -> "🤝 Member (Slot 4):"
+                                else -> "🤝 Member (Slot 5):"
+                            }, fontWeight = FontWeight.Medium, modifier = Modifier.width(140.dp))
                             OutlinedTextField(
                                 value = name,
                                 onValueChange = { viewModel.onPartySlotChanged(index, it) },
@@ -65,7 +63,7 @@ fun SettingsScreen(
         // Pet AutoBuff
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = stringResource(id = com.vtcdeploy.R.string.grp_pet), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = "Pet AutoBuff (Trigger %)", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(text = "HP: ${catHp}%", fontWeight = FontWeight.Medium)
@@ -82,9 +80,9 @@ fun SettingsScreen(
         // Daily Quests
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = stringResource(id = com.vtcdeploy.R.string.grp_daily), fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = "Daily Quests", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    Text(text = stringResource(id = com.vtcdeploy.R.string.lbl_dung), modifier = Modifier.weight(1f))
+                    Text(text = "Buy Extra Dungeon Runs (0/1/2):", modifier = Modifier.weight(1f))
                     DropdownMenuButton(
                         text = dungeonCount.toString(),
                         onValueChange = viewModel.onDungeonCountChanged
@@ -104,7 +102,7 @@ fun SettingsScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = stringResource(id = com.vtcdeploy.R.string.chk_flee), fontWeight = FontWeight.Bold)
+                Text(text = "[*] Auto-Flee when No Party", fontWeight = FontWeight.Bold)
                 Switch(checked = fleeNoParty, onCheckedChange = viewModel.onFleeNoPartyChanged)
             }
         }

@@ -1,0 +1,11 @@
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\data\ShellExecutor.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\ui\SettingsScreen.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\ui\MainViewModel.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\data\ConfigManager.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\domain\PatchUseCase.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\data\LuaScriptProvider.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\ui\MainScreen.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\MainActivity.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\ui\theme\VtcDeployTheme.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\VtcDeployApplication.kt
+C:\Users\thanhnd\Desktop\Tool-Code\VtcDeployAndroid\app\src\main\java\com\vtcdeploy\data\DeviceManager.kt

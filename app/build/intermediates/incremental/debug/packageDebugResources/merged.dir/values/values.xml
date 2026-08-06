@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_red">#8B0000</color>
+    <color name="error">#D32F2F</color>
+    <color name="log_bg">#000000</color>
+    <color name="log_text">#00FF00</color>
+    <color name="misty_rose">#FFE4E1</color>
+    <color name="primary">#2E7D32</color>
+    <color name="primary_container">#A5D6A7</color>
+    <color name="secondary">#1565C0</color>
+    <color name="surface">#FFFFFF</color>
+    <string name="app_name">VtcDeploy - TS Game Optimizer</string>
+    <string name="app_name_short">VtcDeploy</string>
+    <string name="btn_patch">PATCH (ACTIVATE OPTIMIZATION)</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="grp_adb">Emulator Directory</string>
+    <string name="grp_devices">Emulator List (Check to Patch)</string>
+    <string name="lbl_game_pkg">Game: com.vtcmobile.gz06</string>
+    <string name="lbl_inst">INSTRUCTIONS:\n1. ALWAYS CLICK [PATCH] WHILE IN GAME, EVERY TIME GAME RESTARTS.\n2. IF TOOL HANGS, ONLY RESTART GAME APP, NOT THE ENTIRE EMULATOR.</string>
+    <string name="tab_main">Main</string>
+    <style name="Theme.VtcDeploy" parent="android:Theme.Material.Light.NoActionBar">
+    </style>
+</resources>

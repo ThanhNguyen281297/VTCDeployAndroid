@@ -1,0 +1,21 @@
+R_DEF: Internal format may change without notice
+local
+color dark_red
+color error
+color log_bg
+color log_text
+color misty_rose
+color primary
+color primary_container
+color secondary
+color surface
+string app_name
+string app_name_short
+string btn_patch
+string btn_refresh
+string grp_adb
+string grp_devices
+string lbl_game_pkg
+string lbl_inst
+string tab_main
+style Theme.VtcDeploy
