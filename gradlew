@@ -146,4 +146,4 @@ ARGS+=("org.gradle.wrapper.GradleWrapperMain")
 ARGS+=("$@")
 
 # Execute
-exec "$JAVACMD" "${ARGS[@]}"
+exec "$JAVACMD" "${ARGS[@]}"\n
