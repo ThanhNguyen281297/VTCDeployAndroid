@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.VtcDeploy" parent="androidx.compose.material3.Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorError">@color/error</item>
+    </style>
+</resources>
