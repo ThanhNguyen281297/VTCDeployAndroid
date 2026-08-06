@@ -1,0 +1,17 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare text files
+*.yml text
+*.yaml text
+*.md text
+*.txt text
+*.kt text
+*.java text
+*.xml text
+*.gradle text
+*.properties text
+
+# Scripts must have LF endings
+gradlew text eol=lf
+gradlew.bat text eol=crlf
